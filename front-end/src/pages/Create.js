@@ -20,7 +20,14 @@ export default function Create({ database }) {
   };
 
   return (
-    <Container sx={{ marginTop: "80px", marginRight: "40px" }}>
+    <Container
+      sx={{
+        marginTop: "80px",
+        marginRight: "40px",
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
       <Paper
         sx={{
           backgroundColor: "rgba(51, 51, 51, 0.077)",
