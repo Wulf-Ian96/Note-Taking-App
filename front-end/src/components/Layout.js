@@ -8,6 +8,8 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  AppBar,
+  Toolbar,
 } from "@mui/material";
 import SubjectIcon from "@mui/icons-material/Subject";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
@@ -16,7 +18,8 @@ import { styled } from "@mui/material";
 const LayoutDiv = styled("div")({
   backgroundColor: "#f9f9f9",
   display: "flex",
-  width: "100%",
+  width: "100vw",
+  padding: "10px",
 });
 
 const menuItems = [
@@ -40,6 +43,11 @@ export default function Layout({ children }) {
 
   return (
     <LayoutDiv>
+      <AppBar>
+        <Toolbar sx={{ textAlign: "center" }}>
+          <Typography>Today is: </Typography>
+        </Toolbar>
+      </AppBar>
       {/* side Drawer */}
       <Drawer
         variant="permanent"
