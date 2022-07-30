@@ -61,8 +61,6 @@ export default function App() {
     <ThemeProvider theme={NewTheme}>
       <BrowserRouter>
         <CustomLayout>
-          <Link to="/">Notes</Link>
-          <Link to="/Create">Create</Link>
           <Routes>
             <Route
               path="/"
