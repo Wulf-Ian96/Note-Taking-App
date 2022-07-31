@@ -20,7 +20,7 @@ const LayoutDiv = styled("div")({
   backgroundColor: "#f9f9f9",
   display: "flex",
   width: "100%",
-  marginRight: "0px",
+  marginLeft: "20px",
 });
 
 const menuItems = [
