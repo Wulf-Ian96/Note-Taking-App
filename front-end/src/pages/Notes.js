@@ -6,15 +6,31 @@ export default function Notes({ notesData, database }) {
   return (
     <Container
       sx={{
+        "&.MuiContainer-root": {
+          maxWidth: "100%",
+        },
+
+        flexDirection: "row",
+
         width: "100%",
         marginTop: "80px",
-        marginRight: "30px",
+        marginRight: "10px",
         marginLeft: "-55px",
+        paddingBottom: "15px",
       }}
     >
-      <Grid container spacing={2}>
+      <Grid
+        sx={{
+          "&.MuiGrid-root": {
+            maxWidth: "100%",
+            justifyContent: "center",
+          },
+        }}
+        container
+        spacing={2}
+      >
         {notesData.map((note) => (
-          <Grid item key={note.id} xs={12} sm={6} md={4} lg={3}>
+          <Grid item key={note.id} xs={12} sm={5} md={5} lg={3}>
             <NoteCard database={database} note={note} />
           </Grid>
         ))}

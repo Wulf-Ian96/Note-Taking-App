@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { Typography, Container, Paper, TextField, Button } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { addDoc, collection } from "firebase/firestore";
@@ -9,14 +9,16 @@ export default function Create({ database }) {
   const [details, setDetails] = useState("");
 
   // function to submit form to the database
-
-  const handleSubmit = async () => {
+  const navigate = useNavigate("/");
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     const payload = {
       title: title,
       details: details,
       category: "Personal",
     };
     await addDoc(collection(database, "Notes"), payload);
+    navigate("/");
   };
 
   return (
@@ -25,7 +27,7 @@ export default function Create({ database }) {
         marginTop: "80px",
         marginRight: "40px",
         display: "flex",
-        alignItems: "center",
+        alignItems: "top",
       }}
     >
       <Paper
@@ -33,6 +35,7 @@ export default function Create({ database }) {
           backgroundColor: "rgba(51, 51, 51, 0.007)",
           border: "1px solid #587b7f",
           padding: "10px",
+          height: "290px",
         }}
       >
         <Typography sx={{ marginBottom: "5px" }} color="#333" variant="h4">

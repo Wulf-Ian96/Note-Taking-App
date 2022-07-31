@@ -10,6 +10,7 @@ import {
   ListItemText,
   AppBar,
   Toolbar,
+  Avatar,
 } from "@mui/material";
 
 import SubjectIcon from "@mui/icons-material/Subject";
@@ -20,18 +21,20 @@ const LayoutDiv = styled("div")({
   backgroundColor: "#f9f9f9",
   display: "flex",
   width: "100%",
-  marginLeft: "20px",
+  marginLeft: "8px",
+  marginBottom: "-8px",
+  height: "99vh",
 });
 
 const menuItems = [
   {
     text: "My Notes",
-    icon: <SubjectIcon color="secondary" />,
+    icon: <SubjectIcon color="primary" />,
     path: "/",
   },
   {
     text: "Create Note",
-    icon: <AddCircleIcon color="secondary" />,
+    icon: <AddCircleIcon color="error" />,
     path: "/Create",
   },
 ];
@@ -43,18 +46,6 @@ export default function Layout({ children }) {
 
   return (
     <LayoutDiv>
-      <AppBar
-        sx={{
-          "&.MuiAppBar-root": {
-            width: "calc(100% - 200px)",
-            zIndex: 2000,
-          },
-        }}
-      >
-        <Toolbar sx={{ width: "calc(100% -250px" }}>
-          <Typography>Note Taking App </Typography>
-        </Toolbar>
-      </AppBar>
       {/* side Drawer */}
       <Drawer
         variant="permanent"
@@ -64,9 +55,21 @@ export default function Layout({ children }) {
           "& .MuiDrawer-paper": { width: "200px", display: "block" },
         }}
       >
-        <Typography>Users Notes</Typography>
+        <AppBar>
+          <Toolbar
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography>Note Taking App</Typography>
+            <Avatar></Avatar>
+          </Toolbar>
+        </AppBar>
+        <Typography></Typography>
 
-        <List>
+        <List sx={{ marginTop: "60px" }}>
           {menuItems.map((item) => (
             <ListItem key={item.text} button onClick={() => history(item.path)}>
               {/* you can point to a path, by using useHistory.push() */}

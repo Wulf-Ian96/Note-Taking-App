@@ -18,6 +18,7 @@ export default function NoteCard({ note, database }) {
   return (
     <Card elevation={3}>
       <CardHeader
+        sx={{ marginBottom: "-20px" }}
         action={
           <IconButton
             onClick={() => {
