@@ -11,6 +11,7 @@ import {
   AppBar,
   Toolbar,
 } from "@mui/material";
+
 import SubjectIcon from "@mui/icons-material/Subject";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { styled } from "@mui/material";
@@ -18,8 +19,8 @@ import { styled } from "@mui/material";
 const LayoutDiv = styled("div")({
   backgroundColor: "#f9f9f9",
   display: "flex",
-  width: "100vw",
-  padding: "10px",
+  width: "100%",
+  marginRight: "0px",
 });
 
 const menuItems = [
@@ -39,13 +40,19 @@ const activeTab = {
 };
 export default function Layout({ children }) {
   const history = useNavigate();
-  const location = useLocation();
 
   return (
     <LayoutDiv>
-      <AppBar>
-        <Toolbar sx={{ textAlign: "center" }}>
-          <Typography>Today is: </Typography>
+      <AppBar
+        sx={{
+          "&.MuiAppBar-root": {
+            width: "calc(100% - 200px)",
+            zIndex: 2000,
+          },
+        }}
+      >
+        <Toolbar sx={{ width: "calc(100% -250px" }}>
+          <Typography>Note Taking App </Typography>
         </Toolbar>
       </AppBar>
       {/* side Drawer */}

@@ -30,7 +30,7 @@ export default function Create({ database }) {
     >
       <Paper
         sx={{
-          backgroundColor: "rgba(51, 51, 51, 0.077)",
+          backgroundColor: "rgba(51, 51, 51, 0.007)",
           border: "1px solid #587b7f",
           padding: "10px",
         }}
