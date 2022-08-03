@@ -98,7 +98,7 @@ export default function SmNav({ categoryData }) {
         >
           <MenuItem
             onClick={() => {
-              history("/");
+              history("/Note-Taking-App/");
               handleClose();
             }}
           >

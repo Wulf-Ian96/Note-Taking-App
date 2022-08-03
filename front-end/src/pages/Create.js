@@ -20,7 +20,7 @@ export default function Create({ database }) {
       category: category,
     };
     await addDoc(collection(database, "Notes"), payload);
-    navigate("/");
+    navigate("/Note-Taking-App/");
   };
 
   // paper style

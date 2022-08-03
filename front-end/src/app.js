@@ -98,7 +98,7 @@ export default function App() {
         <Layout categoryData={categoryData}>
           <Routes>
             <Route
-              path="/"
+              path="/Note-Taking-App/"
               element={<Notes database={database} notesData={notesData} />}
             />
 

@@ -20,7 +20,7 @@ export default function LgNav({ categoryData }) {
     {
       text: "My Notes",
       icon: <SubjectIcon color="primary" />,
-      path: "/",
+      path: "/Note-Taking-App/",
     },
     {
       text: "Create Note",
