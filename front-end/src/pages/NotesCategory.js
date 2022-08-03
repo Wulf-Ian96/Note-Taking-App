@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NoteCard from "../components/NoteCard";
 import { Grid, Container } from "@mui/material";
+import { useParams } from "react-router-dom";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 
-export default function Notes({ notesData, database }) {
+export default function NotesCategory({ database }) {
+  const [categoryData, setCategoryData] = useState([
+    { notesData: "", id: "id" },
+  ]);
+  const { category } = useParams();
+
+  const q = query(
+    collection(database, "Notes"),
+    where("category", "==", `${category.substring(1)}`)
+  );
+
+  useEffect(() => {
+    onSnapshot(q, (snapshot) => {
+      setCategoryData(
+        snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
+    });
+  }, [category]);
+
   return (
     <Container
       sx={{
@@ -28,7 +48,7 @@ export default function Notes({ notesData, database }) {
         container
         spacing={2}
       >
-        {notesData.map((note) => (
+        {categoryData.map((note) => (
           <Grid item key={note.id} xs={12} sm={12} md={6} lg={6} xl={6}>
             <NoteCard database={database} note={note} />
           </Grid>
@@ -37,12 +57,3 @@ export default function Notes({ notesData, database }) {
     </Container>
   );
 }
-
-// breakpoints: {
-//   values: {
-//     xs: 0,
-//     sm: 460,
-//     md: 600,
-//     lg: 900,
-//     xl: 1200,
-//   },

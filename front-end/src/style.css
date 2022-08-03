@@ -7,3 +7,8 @@
 .layout-div {
   display: flex;
 }
+
+a {
+  text-decoration: none;
+  color: #325a87;
+}

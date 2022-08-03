@@ -1,24 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import { initializeApp } from "firebase/app";
-import {
-  getFirestore,
-  collection,
-  onSnapshot,
-  query,
-  where,
-  getDocs,
-} from "firebase/firestore";
+import { getFirestore, collection, onSnapshot } from "firebase/firestore";
 import Notes from "./pages/Notes";
 import Create from "./pages/Create";
 import { createTheme, ThemeProvider, styled } from "@mui/material";
 import Layout from "./components/Layout";
 import CssBaseline from "@mui/material/CssBaseline";
+import NotesCategory from "./pages/NotesCategory";
 
-const CustomLayout = styled(Layout)({
-  backgroundColor: "#f9f9f9",
-  width: "100%",
-});
 export default function App() {
   // set the Firebase DB config
 
@@ -42,7 +32,8 @@ export default function App() {
   // queries
 
   // when using query(collection, where("name of field", "comparasin operator", and "what value you want it to hve"))
-  const q = query(collectionRef, where("category", "=="));
+
+  // const q = query(collectionRef, where("category", "=="));
 
   // saving notes database data to state
   const [notesData, setNotesData] = useState([{ noteData: "", id: "" }]);
@@ -101,7 +92,15 @@ export default function App() {
               path="/Note-Taking-App/"
               element={<Notes database={database} notesData={notesData} />}
             />
-            <Route path="/Note-Taking-App/:category" />
+            <Route
+              path="/Note-Taking-App/:category"
+              element={
+                <NotesCategory
+                  database={database}
+                  collectionRef={collectionRef}
+                />
+              }
+            />
 
             <Route path="/Create" element={<Create database={database} />} />
           </Routes>

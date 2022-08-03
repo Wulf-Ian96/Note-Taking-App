@@ -12,7 +12,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
@@ -30,17 +30,6 @@ export default function SmNav({ categoryData }) {
     setAnchorEl(null);
   };
   // end of menu logic
-
-  const menuItems = [
-    {
-      text: "All Notes",
-      path: "/",
-    },
-    {
-      text: "Create Note",
-      path: "/Create",
-    },
-  ];
 
   const history = useNavigate();
 
@@ -113,7 +102,12 @@ export default function SmNav({ categoryData }) {
             Categories
           </MenuItem>
           {categoryData.map((category) => (
-            <MenuItem>{category}</MenuItem>
+            <Link to={`/Note-Taking-App/:${category}`}>
+              {" "}
+              <MenuItem onClick={() => history(category.path)}>
+                {category}
+              </MenuItem>
+            </Link>
           ))}
         </Menu>
 
