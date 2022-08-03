@@ -6,6 +6,7 @@ import {
   IconButton,
   List,
   ListItem,
+  Box,
 } from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -51,20 +52,24 @@ export default function SmNav({ categoryData }) {
           justifyContent: "space-between",
         }}
       >
-        <IconButton
-          sx={{ marginRight: "-10px", marginLeft: "-15px" }}
-          id="basic-button"
-          aria-controls={open ? "basic-menu" : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? "true" : undefined}
-          onClick={handleClick}
+        <Box
+          sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
         >
-          {" "}
-          <MenuIcon
-            fontSize="medium"
-            color="secondary"
-            sx={{ padding: "3px" }}
-          />
+          <IconButton
+            sx={{ marginRight: "-10px", marginLeft: "-15px" }}
+            id="basic-button"
+            aria-controls={open ? "basic-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? "true" : undefined}
+            onClick={handleClick}
+          >
+            {" "}
+            <MenuIcon
+              fontSize="medium"
+              color="secondary"
+              sx={{ padding: "3px" }}
+            />
+          </IconButton>
           <Typography
             fontSize="1rem"
             sx={{
@@ -76,7 +81,7 @@ export default function SmNav({ categoryData }) {
           >
             My Notes
           </Typography>
-        </IconButton>
+        </Box>
 
         <Menu
           sx={{

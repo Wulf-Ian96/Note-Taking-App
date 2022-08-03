@@ -11,20 +11,20 @@ export default function Notes({ notesData, database }) {
         },
 
         flexDirection: "row",
-
+        justifyContent: "center",
+        alignItems: "center",
         width: "100%",
+
         marginTop: "80px",
-        marginRight: "10px",
-        marginLeft: "-55px",
       }}
     >
       <Grid
-        sx={{
-          "&.MuiGrid-root": {
-            maxWidth: "100%",
-            justifyContent: "center",
-          },
-        }}
+        // // sx={{
+        // //   "&.MuiGrid-root": {
+        // //     maxWidth: "100%",
+        // //     justifyContent: "center",
+        // //   },
+        // }}
         container
         spacing={2}
       >

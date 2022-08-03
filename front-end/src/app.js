@@ -84,7 +84,7 @@ export default function App() {
     breakpoints: {
       values: {
         xs: 0,
-        sm: 300,
+        sm: 460,
         md: 600,
         lg: 900,
         xl: 1200,
