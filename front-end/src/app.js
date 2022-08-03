@@ -13,6 +13,7 @@ import Notes from "./pages/Notes";
 import Create from "./pages/Create";
 import { createTheme, ThemeProvider, styled } from "@mui/material";
 import Layout from "./components/Layout";
+import CssBaseline from "@mui/material/CssBaseline";
 
 const CustomLayout = styled(Layout)({
   backgroundColor: "#f9f9f9",
@@ -45,7 +46,7 @@ export default function App() {
 
   // saving notes database data to state
   const [notesData, setNotesData] = useState([{ noteData: "", id: "" }]);
-  const [queryData, setQueryData] = useState([{ queryData: "", id: "" }]);
+  const [categoryData, setCategoryData] = useState([]);
 
   useEffect(() => {
     onSnapshot(collectionRef, (snapshot) => {
@@ -53,14 +54,16 @@ export default function App() {
     });
   }, []);
 
+  // Grab the document data and grab just the category field for sidebar list
+  const categoriesArray = notesData.map((note) => note.category);
+  // remove all the duplicates
+  const uniqueCateogires = [...new Set(categoriesArray)];
+
   useEffect(() => {
-    onSnapshot(q, (snapshot) => {
-      setQueryData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    });
-  }, []);
+    setCategoryData(uniqueCateogires);
+  }, [notesData]);
 
-  console.log(queryData);
-
+  console.log(categoryData);
   // Create MUI color theme
 
   const NewTheme = createTheme({
@@ -81,17 +84,18 @@ export default function App() {
     breakpoints: {
       values: {
         xs: 0,
-        sm: 700,
-        md: 900,
-        lg: 1200,
-        xl: 1536,
+        sm: 300,
+        md: 600,
+        lg: 900,
+        xl: 1200,
       },
     },
   });
   return (
     <ThemeProvider theme={NewTheme}>
+      <CssBaseline />
       <BrowserRouter>
-        <CustomLayout>
+        <Layout categoryData={categoryData}>
           <Routes>
             <Route
               path="/"
@@ -100,7 +104,7 @@ export default function App() {
 
             <Route path="/Create" element={<Create database={database} />} />
           </Routes>
-        </CustomLayout>
+        </Layout>
       </BrowserRouter>
     </ThemeProvider>
   );

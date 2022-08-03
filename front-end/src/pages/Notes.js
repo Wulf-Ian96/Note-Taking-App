@@ -16,7 +16,6 @@ export default function Notes({ notesData, database }) {
         marginTop: "80px",
         marginRight: "10px",
         marginLeft: "-55px",
-        paddingBottom: "15px",
       }}
     >
       <Grid
