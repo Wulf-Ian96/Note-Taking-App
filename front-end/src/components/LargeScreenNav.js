@@ -13,7 +13,7 @@ import {
 
 import SubjectIcon from "@mui/icons-material/Subject";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function LgNav({ categoryData }) {
   const menuItems = [
@@ -82,9 +82,11 @@ export default function LgNav({ categoryData }) {
       </Typography>
       <List>
         {categoryData.map((category) => (
-          <ListItem key={category} button>
-            <ListItemText primary={category} />
-          </ListItem>
+          <Link to={`/Note-Taking-App/:${category}`}>
+            <ListItem key={category} button>
+              <ListItemText primary={category} />
+            </ListItem>
+          </Link>
         ))}
       </List>
     </Drawer>

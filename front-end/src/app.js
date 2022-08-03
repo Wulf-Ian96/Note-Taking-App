@@ -42,7 +42,7 @@ export default function App() {
   // queries
 
   // when using query(collection, where("name of field", "comparasin operator", and "what value you want it to hve"))
-  const q = query(collectionRef, where("category", "==", "Personal"));
+  const q = query(collectionRef, where("category", "=="));
 
   // saving notes database data to state
   const [notesData, setNotesData] = useState([{ noteData: "", id: "" }]);
@@ -101,6 +101,7 @@ export default function App() {
               path="/Note-Taking-App/"
               element={<Notes database={database} notesData={notesData} />}
             />
+            <Route path="/Note-Taking-App/:category" />
 
             <Route path="/Create" element={<Create database={database} />} />
           </Routes>
