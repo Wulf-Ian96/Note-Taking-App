@@ -19,17 +19,17 @@ export default function Notes({ notesData, database }) {
       }}
     >
       <Grid
-        // // sx={{
-        // //   "&.MuiGrid-root": {
-        // //     maxWidth: "100%",
-        // //     justifyContent: "center",
-        // //   },
-        // }}
+        sx={{
+          "&.MuiGrid-root": {
+            Width: "100%",
+            justifyContent: "center",
+          },
+        }}
         container
         spacing={2}
       >
         {notesData.map((note) => (
-          <Grid item key={note.id} xs={12} sm={5} md={5} lg={3}>
+          <Grid item key={note.id} xs={12} sm={12} md={6} lg={6} xl={6}>
             <NoteCard database={database} note={note} />
           </Grid>
         ))}
@@ -37,3 +37,12 @@ export default function Notes({ notesData, database }) {
     </Container>
   );
 }
+
+// breakpoints: {
+//   values: {
+//     xs: 0,
+//     sm: 460,
+//     md: 600,
+//     lg: 900,
+//     xl: 1200,
+//   },

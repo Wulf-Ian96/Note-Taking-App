@@ -16,7 +16,7 @@ export default function NoteCard({ note, database }) {
     deleteDoc(docRef);
   };
   return (
-    <Card elevation={3}>
+    <Card elevation={3} sx={{ minWidth: "200px" }}>
       <CardHeader
         sx={{ marginBottom: "-20px" }}
         action={
@@ -29,7 +29,7 @@ export default function NoteCard({ note, database }) {
             <DeleteIcon />
           </IconButton>
         }
-        titleTypographyProps={{ color: "primary" }}
+        titleTypographyProps={{ variant: "h6", color: "primary" }}
         title={note.title}
         subheader={note.category}
       />

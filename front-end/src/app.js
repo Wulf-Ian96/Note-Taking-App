@@ -69,10 +69,10 @@ export default function App() {
   const NewTheme = createTheme({
     palette: {
       primary: {
-        main: "#587b7f",
+        main: "#325a87",
       },
       secondary: {
-        main: "#8dab7f",
+        main: "#D5DFEB",
       },
       error: {
         main: "#EF7C8E",

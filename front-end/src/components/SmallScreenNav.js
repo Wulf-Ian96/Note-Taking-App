@@ -14,6 +14,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 // -------------------------- End of Imports ----------------
 
@@ -65,7 +66,7 @@ export default function SmNav({ categoryData }) {
           >
             {" "}
             <MenuIcon
-              fontSize="medium"
+              fontSize="large"
               color="secondary"
               sx={{ padding: "3px" }}
             />
@@ -104,10 +105,9 @@ export default function SmNav({ categoryData }) {
             All Notes
           </MenuItem>
           <MenuItem
-            onClick={handleClose}
             sx={{
-              borderBottom: "2px solid #8dab7f",
-              borderTop: "2px solid #8dab7f",
+              borderBottom: "2px solid #325a87",
+              borderTop: "2px solid #325a87",
             }}
           >
             Categories
@@ -118,7 +118,7 @@ export default function SmNav({ categoryData }) {
         </Menu>
 
         <IconButton onClick={() => history("/Create")}>
-          <AddCircleIcon color="secondary" />{" "}
+          <AddCircleOutlineIcon fontSize="large" color="secondary" />{" "}
         </IconButton>
       </Toolbar>
     </AppBar>

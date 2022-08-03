@@ -74,8 +74,8 @@ export default function LgNav({ categoryData }) {
         sx={{
           textAlign: "left",
           padding: "10px",
-          borderBottom: "2px solid black",
-          borderTop: "2px solid black",
+          borderBottom: "2px solid #325a87",
+          borderTop: "2px solid #325a87",
         }}
       >
         Categories
