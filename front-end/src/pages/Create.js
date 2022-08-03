@@ -28,9 +28,9 @@ export default function Create({ database }) {
   return (
     <Container
       sx={{
-        marginTop: "80px",
+        marginTop: "-4rem",
         display: "flex",
-        alignItems: "top",
+        alignItems: "center",
         width: "100%",
         justifyContent: "center",
       }}
@@ -49,7 +49,7 @@ export default function Create({ database }) {
           border: "1px solid #495d73",
           padding: "10px",
           justifySelf: "center",
-          height: "26rem",
+          height: "25rem",
           width: "100%",
 
           zIndex: { xs: 2000 },
@@ -100,7 +100,12 @@ export default function Create({ database }) {
           value={details}
         />
         <Button
-          sx={{ marginTop: "10px" }}
+          variant="contained"
+          sx={{
+            marginTop: "10px",
+            backgroundColor:
+              "linear-gradient(315deg, hsla(212, 46%, 36%, 1) 0%, hsla(213, 35%, 88%, 1) 100%)",
+          }}
           onClick={handleSubmit}
           endIcon={<ArrowForwardIcon />}
         >
